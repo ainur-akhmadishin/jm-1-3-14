@@ -5,14 +5,16 @@ const  Task = ({ text, addTime, onDelete, onActive, active} ) => {
 	
 
 		let liClass ='';
+		let checked = false;
 		if (!active){
-			liClass +='completed'
+			liClass +='completed';
+			checked = !checked;
 		}
 		
 		
 		return <li className={liClass} >
 				<div className="view">
-					<input className="toggle" type="checkbox"/>
+					<input className="toggle" type="checkbox" checked = {checked} onClick = {onActive} readOnly/>
 					<label>
 						<span className="description" onClick = {onActive}>{text}</span>		
 						<span className="created"> created {addTime} ago </span>
